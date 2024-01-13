@@ -23,4 +23,4 @@ https://github.com/omcodedthis/ToDo/assets/119602009/ddc04681-ff5b-4121-af7a-b59
   The apk file should be created in `build/app/outputs/flutter-apk` directory.
   
 
-# Work in Progress.
+###  _Note: Work in Progress._

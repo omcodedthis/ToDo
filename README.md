@@ -1,5 +1,5 @@
 # ToDo
-This is a To-Do list app that is listed chronologically and has the ability to mark items as completed. Each item can also be deleted from the list if required. This was built using Flutter, an open-source UI software development kit created by Google. It is used to develop cross platform applications from a single codebase for any web browser, Fuchsia, Android, iOS, Linux, macOS, and Windows devices.
+This is a To-Do list app that is listed chronologically and has the ability to mark items as completed. Each item can also be deleted from the list if required. This was built using [Flutter](https://flutter.dev/), an open-source UI software development kit created by Google. It is used to develop cross platform applications from a single codebase for any web browser, Fuchsia, Android, iOS, Linux, macOS, and Windows devices.
 
 ## Demo
 https://github.com/omcodedthis/ToDo/assets/119602009/ddc04681-ff5b-4121-af7a-b596daf0cc54

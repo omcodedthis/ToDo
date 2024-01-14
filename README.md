@@ -20,7 +20,7 @@ https://github.com/omcodedthis/ToDo/assets/119602009/ddc04681-ff5b-4121-af7a-b59
   ```
   flutter build apk # builds the apk file.
   ```
-  The apk file should be created in `build/app/outputs/flutter-apk` directory.
+  The apk file should be created in the `build/app/outputs/flutter-apk` directory.
   
 
 ###  _Note: Work in Progress._

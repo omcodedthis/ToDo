@@ -21,6 +21,6 @@ https://github.com/omcodedthis/ToDo/assets/119602009/ddc04681-ff5b-4121-af7a-b59
   flutter build apk # builds the apk file.
   ```
   The apk file should be created in the `build/app/outputs/flutter-apk` directory.
-  
+- Use [this](https://stackoverflow.com/questions/9718104/how-to-install-apk-from-pc) to install the .apk file onto your Android device.
 
 ###  _Note: Work in Progress._

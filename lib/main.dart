@@ -1,7 +1,17 @@
-import 'package:flutter/material.dart';
+import 'ToDo.dart';
 import 'ToDoRecords.dart';
+import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+
+void main() async {
+  // Database init.
+  await Hive.initFlutter();
+
+  // Registers the TypeAdapter for the ToDo Type.
+  Hive.registerAdapter(ToDoAdapter());
+  await Hive.openBox("todos");
+
   runApp(const ToDoApp());
 }
 
@@ -18,7 +28,7 @@ class ToDoApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,
       ),
-      home: const ToDoRecords(title: 'Flutter Demo Home Page'),
+      home: const ToDoRecords(title: 'Your ToDo'),
     );
   }
 }

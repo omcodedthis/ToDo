@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'ToDo.dart';
+import 'database.dart';
 import 'ShowToDo.dart';
+import 'package:hive/hive.dart';
 
 class ToDoRecords extends StatefulWidget {
   const ToDoRecords({super.key, required this.title});
@@ -15,24 +17,42 @@ class ToDoRecords extends StatefulWidget {
   State<ToDoRecords> createState() => _ToDoRecordsState();
 }
 
-class _ToDoRecordsState extends State<ToDoRecords> {
-  final List<ToDo> _toDos = <ToDo>[];
-  final TextEditingController _textFieldController = TextEditingController();
 
+class _ToDoRecordsState extends State<ToDoRecords> {
+  final box = Hive.box('todos');
+  ToDoDatabase db = ToDoDatabase();
+  final TextEditingController _textFieldController = TextEditingController();
+  int idCounter = 0;
+
+  // Loads data from the database.
+  @override
+  void initState() {
+    if (box.get("TODOLIST") == null) {
+      // First time usage.
+      db.createAndInitDatabase();
+    } else {
+      // Further usages.
+      db.loadData();
+    }
+    super.initState();
+  }
 
   // Adds the ToDo item to the Records.
   void _addToDoItem(String name) {
     setState(() {
-      _toDos.add(ToDo(name: name, completed: false));
+      db.addToDo(ToDo(name: name, id: idCounter, completed: false));
     });
+    db.updateDB();
     _textFieldController.clear();
+    idCounter++;
   }
 
   // Removes the ToDo item from the Records.
   void _deleteTodo(ToDo todo) {
     setState(() {
-      _toDos.removeWhere((element) => element.name == todo.name);
+      db.removeToDo(todo);
     });
+    db.updateDB();
   }
 
   // Swaps the "completed" value of the ToDo object.
@@ -40,10 +60,11 @@ class _ToDoRecordsState extends State<ToDoRecords> {
     setState(() {
       todo.completed = !todo.completed;
     });
+    db.updateDB();
   }
 
 
-  // Displays the "Add an item." dialog when the button is pressed.
+  // Displays the "Add an item." dialog when the '+' button is pressed.
   Future<void> _displayDialog() async {
     return showDialog<void>(
       context: context,
@@ -105,7 +126,7 @@ class _ToDoRecordsState extends State<ToDoRecords> {
         // For each toDo, it is shown based on the boolean value of its "completed"
         //  instance variable.
         padding: const EdgeInsets.symmetric(vertical: 10.0),
-        children: _toDos.map((ToDo todo) {
+        children: db.toDoList.map<Widget>((ToDo todo) {
           return ShowToDo(
               todo: todo,
               swapToDoState: _swapToDoCompletedValue,

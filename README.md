@@ -17,6 +17,7 @@ ToDo uses a [hive](https://pub.dev/packages/hive) database to store the each ite
 
 ## Getting Started
 - Download [Android Studio](https://developer.android.com/studio).
+- Since Flutter supports multiple platforms from a single codebase, ToDo is also available as a Web App & as a Desktop App.
 - Run these commands (to generate a `.apk` file):
   
   ```
@@ -26,9 +27,11 @@ ToDo uses a [hive](https://pub.dev/packages/hive) database to store the each ite
   flutter build apk # builds the apk file.
   ```
   The apk file should be created in the `build/app/outputs/flutter-apk` directory.
-- Use [this](https://stackoverflow.com/questions/9718104/how-to-install-apk-from-pc) to install the `.apk` file onto your Android device.
+  - Use this command to install it on your Android device:
+    
+    ```
+    adb install path_to_apk -t
+    ```
   
-- Since Flutter supports multiple platforms from a single codebase, ToDo is also available as a Web App & as a Desktop App.
-
 ###  _Note: Work in Progress._
 

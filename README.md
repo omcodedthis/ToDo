@@ -32,6 +32,3 @@ ToDo uses a [hive](https://pub.dev/packages/hive) database to store the each ite
     ```
     adb install path_to_apk -t
     ```
-  
-###  _Note: Work in Progress._
-

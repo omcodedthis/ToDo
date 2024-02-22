@@ -9,7 +9,7 @@ The above demo shows the addition & removal of items in the ToDo app. ToDo is th
 ToDo uses a [hive](https://pub.dev/packages/hive) database to store the each item in the ToDo list. The `database` class also handles the addition & removal of each ToDo in the list for the sake of modularity.
 
 ## Future Updates
-- [ ] Add more input points for each item, such as date & etc.
+- [X] Add more input points for each item, such as *date* & etc. > Will be added tomorrow.
 - [X] Improve the aesthetics of the app.
 - [X] Remove the ephemeral state of the app using a SQL database.
 - [X] Add support for Windows & web browsers.

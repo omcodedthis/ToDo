@@ -16,10 +16,8 @@ class ShowToDo extends StatelessWidget {
         decoration: TextDecoration.lineThrough,
       );
     }
-
     return null;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,7 @@ class ShowToDo extends StatelessWidget {
       ),
       title: Row(children: <Widget>[
         Expanded(
-          child: Text(todo.name, style: _getTextStyle(todo.completed)),
+          child: Text(todo.name + " [Set on " + todo.date + "]", style: _getTextStyle(todo.completed)),
         ),
         IconButton(
           iconSize: 30,

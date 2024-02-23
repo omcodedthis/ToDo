@@ -20,19 +20,22 @@ class ToDoAdapter extends TypeAdapter<ToDo> {
       name: fields[0] as String,
       id: fields[1] as int,
       completed: fields[2] as bool,
+      date: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, ToDo obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
       ..write(obj.id)
       ..writeByte(2)
-      ..write(obj.completed);
+      ..write(obj.completed)
+      ..writeByte(3)
+      ..write(obj.date);
   }
 
   @override

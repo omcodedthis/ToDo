@@ -3,6 +3,7 @@ import 'ToDo.dart';
 import 'database.dart';
 import 'ShowToDo.dart';
 import 'package:hive/hive.dart';
+import 'package:intl/intl.dart';
 
 class ToDoRecords extends StatefulWidget {
   const ToDoRecords({super.key, required this.title});
@@ -40,11 +41,18 @@ class _ToDoRecordsState extends State<ToDoRecords> {
   // Adds the ToDo item to the Records.
   void _addToDoItem(String name) {
     setState(() {
-      db.addToDo(ToDo(name: name, id: idCounter, completed: false));
+      String currentDate = getCurrentDate();
+      db.addToDo(ToDo(name: name, id: idCounter, completed: false, date: currentDate));
     });
     db.updateDB();
     _textFieldController.clear();
     idCounter++;
+  }
+
+  String getCurrentDate() {
+    final now = DateTime.now();
+    var formatter = new DateFormat().add_yMd();
+    return formatter.format(now);
   }
 
   // Removes the ToDo item from the Records.

@@ -6,7 +6,7 @@ https://github.com/omcodedthis/ToDo/assets/119602009/e94a9283-850a-42d9-87f2-191
 
 The above demo shows the addition & removal of items in the ToDo app. ToDo is then closed & re-opened, with the items still present, showcasing the persistence of the app. ToDo is _modular_, allowing you to add more data parameters easily by mainly only editing the `ToDo` class.
 
-ToDo uses a [hive](https://pub.dev/packages/hive) database to store the each item in the ToDo list. The `database` class also handles the addition & removal of each ToDo in the list for the sake of modularity.
+ToDo uses a [hive](https://pub.dev/packages/hive) database to store the each item in the ToDo list. For the sake of modularity, `database.dart` also handles the addition & removal of each ToDo in the list.
 
 ## Future Updates
 - [X] Add more input points for each item, such as *date* & etc.
